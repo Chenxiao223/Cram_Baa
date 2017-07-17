@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Cram_Baa</string>
+    <!--homeActivity-->
+    <string name="homeActivity_homepage">首页</string>
+    <string name="homeActivity_store">商城</string>
+    <string name="homeActivity_sign_in">签到</string>
+    <string name="homeActivity_schedule">课表</string>
+    <string name="homeActivity_my">我的</string>
 </resources>
