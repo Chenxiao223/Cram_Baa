@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_home_bottom"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -30,7 +30,7 @@
                 android:id="@+id/iv_homepage"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/activity_home_dibudaohang_size"
                 android:src="@drawable/btn_homepage" />
 
             <TextView
@@ -52,8 +52,8 @@
             <ImageView
                 android:id="@+id/iv_store"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
+                android:layout_height="@dimen/activity_home_dibudaohang_size"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
                 android:src="@drawable/btn_store" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:id="@+id/iv_sign_in"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/activity_home_dibudaohang_size"
                 android:src="@drawable/btn_sign_in" />
 
             <TextView
@@ -99,7 +99,7 @@
                 android:id="@+id/iv_schedule"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/activity_home_dibudaohang_size"
                 android:src="@drawable/btn_schedule" />
 
             <TextView
@@ -122,7 +122,7 @@
                 android:id="@+id/iv_my"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/activity_home_dibudaohang_size"
                 android:src="@drawable/btn_my" />
 
             <TextView

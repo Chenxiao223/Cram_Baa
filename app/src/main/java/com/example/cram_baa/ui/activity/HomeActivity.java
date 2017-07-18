@@ -82,7 +82,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
             }
         });
-
+        //一进来就显示首页的fragment
         pager.setCurrentItem(0);
         changeColor(true, false, false, false, false);
     }

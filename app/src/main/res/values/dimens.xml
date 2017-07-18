@@ -8,5 +8,8 @@
     <dimen name="activity_home_dibudaohang_size">30dp</dimen>
 
     <!--TitleActivity-->
-    <dimen name="activity_title">60dp</dimen>
+    <dimen name="activity_title">48dp</dimen>
+    <dimen name="activity_title_padding">5dp</dimen>
+    <dimen name="activity_title_tvtitle">22dp</dimen>
+    <dimen name="activity_title_btn">18dp</dimen>
 </resources>
