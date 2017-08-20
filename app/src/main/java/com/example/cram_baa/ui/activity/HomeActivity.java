@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.cram_baa.R;
-import com.example.cram_baa.ui.adapter.HomePageAdapter;
+import com.example.cram_baa.adapter.HomePageAdapter;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
@@ -16,8 +16,8 @@ import com.example.cram_baa.ui.adapter.HomePageAdapter;
  */
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout lv_homepage, lv_store, lv_sign_in, lv_schedule, lv_my;
-    private ImageView iv_homepage, iv_store, iv_sign_in, iv_schedule, iv_my;
-    private TextView tv_homepage, tv_store, tv_sign_in, tv_schedule, tv_my;
+    private ImageView iv_homepage, iv_selection, iv_sign_in, iv_schedule, iv_my;
+    private TextView tv_homepage, tv_selection, tv_sign_in, tv_schedule, tv_my;
     private HomePageAdapter homePageAdapter = null;
     private ViewPager pager = null;
 
@@ -31,13 +31,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     public void initView() {
         iv_homepage = (ImageView) findViewById(R.id.iv_homepage);
-        iv_store = (ImageView) findViewById(R.id.iv_store);
+        iv_selection = (ImageView) findViewById(R.id.iv_selection);
         iv_sign_in = (ImageView) findViewById(R.id.iv_sign_in);
         iv_schedule = (ImageView) findViewById(R.id.iv_schedule);
         iv_my = (ImageView) findViewById(R.id.iv_my);
 
         tv_homepage = (TextView) findViewById(R.id.tv_homepage);
-        tv_store = (TextView) findViewById(R.id.tv_store);
+        tv_selection = (TextView) findViewById(R.id.tv_selection);
         tv_sign_in = (TextView) findViewById(R.id.tv_sign_in);
         tv_schedule = (TextView) findViewById(R.id.tv_schedule);
         tv_my = (TextView) findViewById(R.id.tv_my);
@@ -123,11 +123,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         }
 
         if (store) {
-            iv_store.setImageResource(R.drawable.btn_store_b);
-            tv_store.setTextColor(this.getResources().getColor(R.color.blue));
+            iv_selection.setImageResource(R.drawable.btn_selection_b);
+            tv_selection.setTextColor(this.getResources().getColor(R.color.blue));
         } else {
-            iv_store.setImageResource(R.drawable.btn_store);
-            tv_store.setTextColor(this.getResources().getColor(R.color.gray));
+            iv_selection.setImageResource(R.drawable.btn_selection);
+            tv_selection.setTextColor(this.getResources().getColor(R.color.gray));
         }
 
         if (sigin_in) {

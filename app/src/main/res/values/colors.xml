@@ -6,6 +6,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="titlebackgroup">#ffdc44</color>
     <color name="touming">#00000000</color>
+    <color name="white">#ffffff</color>
 
     <!--homeActivity-->
     <color name="dibudaohang">#bfbfbf</color>

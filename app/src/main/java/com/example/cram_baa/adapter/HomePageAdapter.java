@@ -1,4 +1,4 @@
-package com.example.cram_baa.ui.adapter;
+package com.example.cram_baa.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,7 +8,7 @@ import com.example.cram_baa.ui.fragment.HomePageFragment;
 import com.example.cram_baa.ui.fragment.MyFragment;
 import com.example.cram_baa.ui.fragment.ScheduleFragment;
 import com.example.cram_baa.ui.fragment.Sign_In_Fragment;
-import com.example.cram_baa.ui.fragment.StoreFragment;
+import com.example.cram_baa.ui.fragment.selectionFragment;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
@@ -23,7 +23,7 @@ public class HomePageAdapter extends FragmentPagerAdapter {
         if(position==0){
             return new HomePageFragment();
         }else if(position==1){
-            return new StoreFragment();
+            return new selectionFragment();
         }else if(position==2){
             return new Sign_In_Fragment();
         }else if(position==3){

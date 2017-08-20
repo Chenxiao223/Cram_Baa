@@ -11,18 +11,22 @@ import com.example.cram_baa.R;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
- *‘我的’页面
  */
-public class MyFragment extends Fragment {
+public class selection_chineseFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_my,container,false);
+        return inflater.inflate(R.layout.fragment_selection_chinese,container,false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        initView();
+    }
+
+    public void initView(){
 
     }
 }

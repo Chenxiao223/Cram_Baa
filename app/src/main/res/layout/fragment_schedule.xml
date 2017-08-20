@@ -4,9 +4,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="4"/>
+        android:layout_height="@dimen/activity_title"
+        android:background="@color/titlebackgroup">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/homeActivity_schedule"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/activity_title_tvtitle" />
+
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="0.2dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/edit"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
 
 </LinearLayout>
