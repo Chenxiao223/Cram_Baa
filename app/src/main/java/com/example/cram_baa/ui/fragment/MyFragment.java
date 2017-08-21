@@ -1,19 +1,42 @@
 package com.example.cram_baa.ui.fragment;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.cram_baa.R;
+import com.example.cram_baa.view.TakePhotoPopWin;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
  *‘我的’页面
  */
-public class MyFragment extends Fragment {
+public class MyFragment extends Fragment implements View.OnClickListener {
+    public static MyFragment fragment;
+    private ImageView iv_head;
+    private RelativeLayout call;
+    private TextView telephone_number;
+    public final int PIC_FROM_CAMERA = 1;
+    public final int PIC_FROM＿LOCALPHOTO = 0;
+    public Uri photoUri;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -23,6 +46,164 @@ public class MyFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        fragment=this;
+        initView();
+    }
 
+    public void initView(){
+        call= (RelativeLayout) getView().findViewById(R.id.call);
+        iv_head= (ImageView) getView().findViewById(R.id.iv_head);
+        telephone_number= (TextView) getView().findViewById(R.id.telephone_number);
+        call.setOnClickListener(this);
+        iv_head.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_head:
+                TakePhotoPopWin takePhotoPopWin = new TakePhotoPopWin(getActivity(), onClickListener, 0);
+                takePhotoPopWin.showAtLocation(getView().findViewById(R.id.main_view), Gravity.BOTTOM, 0, 0);//125
+                break;
+            case R.id.call:
+                startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+telephone_number.getText().toString())));//拨打电话
+                break;
+        }
+    }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+//                case R.id.tv_huowei:
+//                    System.out.println("fewafwaefwea--------------------------------------");
+//                    break;
+            }
+        }
+    };
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode)
+        {
+            case PIC_FROM_CAMERA: // 拍照
+                try
+                {
+                    cropImageUriByTakePhoto();
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                break;
+            case PIC_FROM＿LOCALPHOTO:
+                try
+                {
+                    if (photoUri != null)
+                    {
+                        Bitmap bitmap = decodeUriAsBitmap(photoUri);
+                        iv_head.setImageBitmap(bitmap);
+                    }
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                break;
+        }
+    }
+
+    /**
+     * 启动裁剪
+     */
+    private void cropImageUriByTakePhoto() {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(photoUri, "image/*");
+        setIntentParams(intent);
+        startActivityForResult(intent, PIC_FROM＿LOCALPHOTO);
+    }
+
+    /**
+     * 设置公用参数
+     */
+    private void setIntentParams(Intent intent)
+    {
+        intent.putExtra("crop", "true");
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("outputX", 600);
+        intent.putExtra("outputY", 600);
+        intent.putExtra("noFaceDetection", true); // no face detection
+        intent.putExtra("scale", true);
+        intent.putExtra("return-data", false);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+    }
+
+    private Bitmap decodeUriAsBitmap(Uri uri)
+    {
+        Bitmap bitmap = null;
+        try
+        {
+            bitmap = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(uri));
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return bitmap;
+    }
+
+    private void doHandlerPhoto(int type)
+    {
+        try
+        {
+            //保存裁剪后的图片文件
+            File pictureFileDir = new File(Environment.getExternalStorageDirectory(), "/upload");
+            if (!pictureFileDir.exists()) {
+                pictureFileDir.mkdirs();
+            }
+            File picFile = new File(pictureFileDir, "upload.jpeg");
+            if (!picFile.exists()) {
+                picFile.createNewFile();
+            }
+            photoUri = Uri.fromFile(picFile);
+
+            if (type==PIC_FROM＿LOCALPHOTO)
+            {
+                Intent intent = getCropImageIntent();
+                startActivityForResult(intent, PIC_FROM＿LOCALPHOTO);
+
+            }else
+            {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                startActivityForResult(cameraIntent, PIC_FROM_CAMERA);
+
+            }
+
+        } catch (Exception e)
+        {
+            Log.i("HandlerPicError", "处理图片出现错误");
+        }
+    }
+
+    /**
+     * 调用图片剪辑程序
+     */
+    public Intent getCropImageIntent() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+        intent.setType("image/*");
+        setIntentParams(intent);
+        return intent;
+    }
+
+    //相册
+    public void photoAlbum(){
+        doHandlerPhoto(PIC_FROM＿LOCALPHOTO);
+    }
+
+    //拍照
+    public void photograph(){
+        doHandlerPhoto(PIC_FROM_CAMERA);
     }
 }
