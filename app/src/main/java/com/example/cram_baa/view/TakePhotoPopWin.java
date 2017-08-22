@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -25,7 +26,7 @@ import java.io.File;
 public class TakePhotoPopWin extends PopupWindow implements View.OnClickListener {
     private Context mContext;
     private View view;
-    private TextView tv_photograph,tv_photo_album;
+    private TextView tv_photograph, tv_photo_album;
 
     public TakePhotoPopWin(final Context mContext, View.OnClickListener itemsOnClick, int flag) {
         this.mContext = mContext;
@@ -42,7 +43,6 @@ public class TakePhotoPopWin extends PopupWindow implements View.OnClickListener
 
         // 设置弹出窗体可点击
         this.setFocusable(true);
-        this.setOutsideTouchable(false);
         // 实例化一个ColorDrawable颜色为半透明
 //        ColorDrawable dw = new ColorDrawable(0xb0000000);
 //        // 设置弹出窗体的背景
@@ -50,18 +50,34 @@ public class TakePhotoPopWin extends PopupWindow implements View.OnClickListener
 
         // 设置弹出窗体显示时的动画，从底部向上弹出
         this.setAnimationStyle(R.style.take_photo_anim);
+//        mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
+        this.view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int height = view.findViewById(R.id.pop_layout).getTop();
+                int y = (int) event.getY();
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (y < height) {
+                        dismiss();
+                    }
+                }
+                return true;
+            }
+
+        });
+
     }
 
-    public void initView(){
-        tv_photograph= (TextView) view.findViewById(R.id.tv_photograph);
-        tv_photo_album= (TextView) view.findViewById(R.id.tv_photo_album);
+    public void initView() {
+        tv_photograph = (TextView) view.findViewById(R.id.tv_photograph);
+        tv_photo_album = (TextView) view.findViewById(R.id.tv_photo_album);
         tv_photograph.setOnClickListener(this);
         tv_photo_album.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_photograph://拍照
                 MyFragment.fragment.photograph();
                 dismiss();
