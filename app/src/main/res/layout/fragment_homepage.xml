@@ -23,6 +23,7 @@
         android:paddingTop="5dp">
 
         <LinearLayout
+            android:id="@+id/line_sign_in"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
@@ -34,10 +35,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:paddingBottom="15dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="15dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
                 android:src="@drawable/iv_sign_in" />
 
             <LinearLayout
@@ -69,6 +70,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/line_class_schedule"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -128,6 +130,11 @@
             android:layout_marginRight="3dp"
             android:layout_weight="1"
             android:background="#f28274"
+            android:gravity="center"
+            android:drawableTop="@drawable/chinese"
+            android:text="语文"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:src="@drawable/iv_yuwen" />
 
         <TextView
@@ -136,6 +143,11 @@
             android:layout_height="match_parent"
             android:layout_marginRight="3dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:drawableTop="@drawable/english"
+            android:text="英语"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="#fd9628"
             android:src="@drawable/iv_english" />
 
@@ -145,6 +157,11 @@
             android:layout_height="match_parent"
             android:layout_marginRight="3dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:drawableTop="@drawable/math"
+            android:text="数学"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="#9956d8"
             android:src="@drawable/iv_math" />
 
@@ -153,6 +170,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
+            android:drawableTop="@drawable/history"
+            android:text="历史"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="#7497fe"
             android:src="@drawable/iv_history" />
     </LinearLayout>
@@ -171,6 +193,11 @@
             android:layout_height="match_parent"
             android:layout_marginRight="3dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:drawableTop="@drawable/physics"
+            android:text="物理"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="#53bff8"
             android:src="@drawable/iv_physics" />
 
@@ -180,6 +207,11 @@
             android:layout_height="match_parent"
             android:layout_marginRight="3dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:drawableTop="@drawable/chemistry"
+            android:text="化学"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="#59c3b1"
             android:src="@drawable/iv_chemistry" />
 
@@ -189,6 +221,11 @@
             android:layout_height="match_parent"
             android:layout_marginRight="3dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:drawableTop="@drawable/biology"
+            android:text="生物"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="#fea750"
             android:src="@drawable/iv_biology" />
 
@@ -197,6 +234,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
+            android:drawableTop="@drawable/biology"
+            android:text="语文"
+            android:textSize="17sp"
+            android:textColor="@color/white"
             android:background="#e02f2f"
             android:src="@drawable/iv_more" />
     </LinearLayout>

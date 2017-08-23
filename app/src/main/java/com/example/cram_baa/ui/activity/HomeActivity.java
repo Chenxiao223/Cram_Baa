@@ -15,17 +15,19 @@ import com.example.cram_baa.adapter.HomePageAdapter;
  * 主页面
  */
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
+    public static HomeActivity homeActivity;
     private LinearLayout lv_homepage, lv_store, lv_sign_in, lv_schedule, lv_my;
     private ImageView iv_homepage, iv_selection, iv_sign_in, iv_schedule, iv_my;
     private TextView tv_homepage, tv_selection, tv_sign_in, tv_schedule, tv_my;
     private HomePageAdapter homePageAdapter = null;
-    private ViewPager pager = null;
+    public ViewPager pager = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //
+        homeActivity=this;
         initView();
     }
 

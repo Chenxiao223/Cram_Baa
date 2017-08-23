@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.cram_baa.R;
+import com.example.cram_baa.ui.activity.HomeActivity;
 import com.example.cram_baa.ui.activity.TileActivity;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
@@ -21,9 +22,10 @@ import com.jude.rollviewpager.hintview.ColorPointHintView;
 /**
  * Created by Administrator on 2017/7/17 0017.
  */
-public class HomePageFragment extends Fragment {
+public class HomePageFragment extends Fragment implements View.OnClickListener {
     private RollPagerView mRollViewPager;
     private TextView tv_yuwen,tv_english,tv_math,tv_history,tv_physics,tv_chemistry,tv_biology,tv_more;
+    private LinearLayout line_sign_in,line_class_schedule;
 
     @Nullable
     @Override
@@ -39,6 +41,8 @@ public class HomePageFragment extends Fragment {
     }
 
     public void initView(){
+        line_class_schedule= (LinearLayout) getView().findViewById(R.id.line_class_schedule);
+        line_sign_in= (LinearLayout) getView().findViewById(R.id.line_sign_in);
         TileActivity tileActivity=new TileActivity(getActivity().getWindow().getDecorView());
         tileActivity.tv_title.setText("阿咩爱补习");
         tileActivity.btn_left.setText("上海");
@@ -91,6 +95,23 @@ public class HomePageFragment extends Fragment {
         //隐藏指示器
         //mRollViewPager.setHintView(new IconHintView(this, R.drawable.point_focus, R.drawable.point_normal));
         mRollViewPager.setHintView(new ColorPointHintView(getActivity(), Color.YELLOW,Color.WHITE));
+
+        line_class_schedule.setOnClickListener(this);
+        line_sign_in.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.line_class_schedule:
+                HomeActivity.homeActivity.pager.setCurrentItem(3);
+                HomeActivity.homeActivity.changeColor(false, false, false, true, false);
+                break;
+            case R.id.line_sign_in:
+                HomeActivity.homeActivity.pager.setCurrentItem(2);
+                HomeActivity.homeActivity.changeColor(false, false, true, false, false);
+                break;
+        }
     }
 
     private class TestNormalAdapter extends StaticPagerAdapter {
