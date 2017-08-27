@@ -21,6 +21,7 @@ public class selectionFragment extends Fragment implements View.OnClickListener 
     private SelectionFragmentAdapter selectionFragmentAdapter = null;
     private ViewPager selectpager = null;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,6 +99,7 @@ public class selectionFragment extends Fragment implements View.OnClickListener 
         //一进来就显示首页的fragment
         selectpager.setCurrentItem(0);
         changeColor(true, false, false, false, false, false, false, false, false, false);
+
     }
 
     @Override
