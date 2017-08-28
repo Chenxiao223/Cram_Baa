@@ -55,6 +55,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         lv_schedule.setOnClickListener(this);
         lv_my.setOnClickListener(this);
         pager = (ViewPager) findViewById(R.id.pager);
+        pager.setOffscreenPageLimit(4);//
         homePageAdapter = new HomePageAdapter(getSupportFragmentManager());
         pager.setAdapter(homePageAdapter);
 
