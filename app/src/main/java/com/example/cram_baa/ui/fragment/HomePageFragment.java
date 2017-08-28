@@ -61,6 +61,11 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         tv_chemistry= (TextView) getView().findViewById(R.id.iv_chemistry);
         tv_biology= (TextView) getView().findViewById(R.id.iv_biology);
         tv_more= (TextView) getView().findViewById(R.id.iv_more);
+        //设置图片和text之间的间距
+        tv_yuwen.setCompoundDrawablePadding(2);
+        tv_english.setCompoundDrawablePadding(2);
+        tv_math.setCompoundDrawablePadding(2);
+        tv_history.setCompoundDrawablePadding(2);
         //获取当前控件的布局对象
         LinearLayout.LayoutParams p_iv_yuwen= (LinearLayout.LayoutParams) tv_yuwen.getLayoutParams();
         p_iv_yuwen.height=height;//设置当前控件布局的高度
