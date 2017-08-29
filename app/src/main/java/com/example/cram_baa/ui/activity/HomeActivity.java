@@ -119,7 +119,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void changeColor(boolean homepage, boolean store, boolean sigin_in, boolean schedule, boolean my) {
         if (homepage) {
             iv_homepage.setImageResource(R.drawable.btn_homepage_b);
-            tv_homepage.setTextColor(this.getResources().getColor(R.color.blue));
+            tv_homepage.setTextColor(this.getResources().getColor(R.color.yellow));
         } else {
             iv_homepage.setImageResource(R.drawable.btn_homepage);
             tv_homepage.setTextColor(this.getResources().getColor(R.color.gray));
@@ -127,7 +127,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         if (store) {
             iv_selection.setImageResource(R.drawable.btn_selection_b);
-            tv_selection.setTextColor(this.getResources().getColor(R.color.blue));
+            tv_selection.setTextColor(this.getResources().getColor(R.color.yellow));
         } else {
             iv_selection.setImageResource(R.drawable.btn_selection);
             tv_selection.setTextColor(this.getResources().getColor(R.color.gray));
@@ -135,7 +135,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         if (sigin_in) {
             iv_sign_in.setImageResource(R.drawable.btn_sign_in_b);
-            tv_sign_in.setTextColor(this.getResources().getColor(R.color.blue));
+            tv_sign_in.setTextColor(this.getResources().getColor(R.color.yellow));
         } else {
             iv_sign_in.setImageResource(R.drawable.btn_sign_in);
             tv_sign_in.setTextColor(this.getResources().getColor(R.color.gray));
@@ -143,7 +143,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         if (schedule) {
             iv_schedule.setImageResource(R.drawable.btn_schedule_b);
-            tv_schedule.setTextColor(this.getResources().getColor(R.color.blue));
+            tv_schedule.setTextColor(this.getResources().getColor(R.color.yellow));
         } else {
             iv_schedule.setImageResource(R.drawable.btn_schedule);
             tv_schedule.setTextColor(this.getResources().getColor(R.color.gray));
@@ -151,7 +151,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         if (my) {
             iv_my.setImageResource(R.drawable.btn_my_b);
-            tv_my.setTextColor(this.getResources().getColor(R.color.blue));
+            tv_my.setTextColor(this.getResources().getColor(R.color.yellow));
         } else {
             iv_my.setImageResource(R.drawable.btn_my);
             tv_my.setTextColor(this.getResources().getColor(R.color.gray));
