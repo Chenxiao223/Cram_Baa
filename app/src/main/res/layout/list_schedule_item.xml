@@ -1,129 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/shape_bk_selection">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray">
+            android:background="@color/gray"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="【高中数学】高三知识点强化"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:background="@color/white"
-                android:textColor="@color/colorBlack"/>
-            <LinearLayout
                 android:layout_weight="1"
                 android:background="@color/white"
+                android:gravity="center_vertical"
+                android:text="【高中数学】高三知识点强化"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
                 <TextView
                     android:id="@+id/tv_pvp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="    一对一    "
                     android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_btn"
+                    android:text="    一对一    "
                     android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:background="@drawable/shape_btn"/>
+                    android:textSize="18sp" />
             </LinearLayout>
+
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginTop="0.5dp"
-                android:orientation="horizontal"
                 android:layout_weight="0.5"
                 android:background="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
                     <ImageView
-                        android:layout_weight="0.3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="0.5"
                         android:gravity="center"
-                        android:src="@drawable/head"/>
+                        android:src="@drawable/head" />
+
                     <TextView
                         android:id="@+id/tv_teacher"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textSize="18sp"
-                        android:text="赵老师"/>
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="赵老师"
+                        android:textSize="18sp" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="0.5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:orientation="vertical">
+
                     <LinearLayout
-                    android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/time"/>
-                    <TextView
-                        android:id="@+id/tv_month"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18sp"
-                        android:text="10月5日"/>
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/time" />
+
+                        <TextView
+                            android:id="@+id/tv_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="10月5日"
+                            android:textSize="18sp" />
+
                         <TextView
                             android:id="@+id/tv_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:textSize="18sp"
-                            android:text="19:30-20:30"/>
+                            android:text="19:30-20:30"
+                            android:textSize="18sp" />
+
                         <TextView
                             android:id="@+id/tv_hour"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:text="一课时"
-                            android:textSize="22sp"
-                            android:textColor="@color/titlebackgroup"/>
-                </LinearLayout>
+                            android:textColor="@color/titlebackgroup"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/address"/>
+                            android:src="@drawable/address" />
+
                         <TextView
                             android:id="@+id/tv_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:textSize="18sp"
-                            android:text="苏仙北路3号601室"/>
+                            android:text="苏仙北路3号601室"
+                            android:textSize="18sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
