@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.cram_baa.R;
+import com.example.cram_baa.ui.activity.PersonalData;
 import com.example.cram_baa.view.TakePhotoPopWin;
 
 import java.io.File;
@@ -34,7 +35,7 @@ import java.io.FileNotFoundException;
  */
 public class MyFragment extends Fragment implements View.OnClickListener {
     public static MyFragment fragment;
-    private ImageView iv_head;
+    private ImageView iv_head,iv_personal_data;
     private RelativeLayout call;
     private TextView telephone_number;
     public final int PIC_FROM_CAMERA = 1;
@@ -58,8 +59,10 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         call = (RelativeLayout) getView().findViewById(R.id.call);
         iv_head = (ImageView) getView().findViewById(R.id.iv_head);
         telephone_number = (TextView) getView().findViewById(R.id.telephone_number);
+        iv_personal_data= (ImageView) getView().findViewById(R.id.iv_personal_data);
         call.setOnClickListener(this);
         iv_head.setOnClickListener(this);
+        iv_personal_data.setOnClickListener(this);
     }
 
     @Override
@@ -71,6 +74,9 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.call:
                 startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + telephone_number.getText().toString())));//拨打电话
+                break;
+            case R.id.iv_personal_data:
+                startActivity(new Intent(getActivity(), PersonalData.class));
                 break;
         }
     }

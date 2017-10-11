@@ -45,9 +45,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         line_sign_in= (LinearLayout) getView().findViewById(R.id.line_sign_in);
         TileActivity tileActivity=new TileActivity(getActivity().getWindow().getDecorView());
         tileActivity.tv_title.setText("阿咩爱补习");
-        tileActivity.btn_left.setText("上海");
+        tileActivity.tv_left.setText("上海");
         tileActivity.btn_right.setText("登录");
-        tileActivity.btn_left.setCompoundDrawablePadding(1);//设置图片和text之间的间距
         //获取手机屏幕的宽度,并计算平均宽
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int height=dm.widthPixels/4-19;
