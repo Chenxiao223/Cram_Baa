@@ -27,7 +27,7 @@
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".ui.activity.PersonalData"
+            android:name=".ui.activity.PersonalDataActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>

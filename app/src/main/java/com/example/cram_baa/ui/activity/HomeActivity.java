@@ -32,6 +32,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     public void initView() {
+
         iv_homepage = (ImageView) findViewById(R.id.iv_homepage);
         iv_selection = (ImageView) findViewById(R.id.iv_selection);
         iv_sign_in = (ImageView) findViewById(R.id.iv_sign_in);

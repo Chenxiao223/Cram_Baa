@@ -22,12 +22,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.cram_baa.Entity.Setting;
 import com.example.cram_baa.R;
-import com.example.cram_baa.ui.activity.PersonalData;
+import com.example.cram_baa.ui.activity.PersonalDataActivity;
+import com.example.cram_baa.util.DBOperation;
 import com.example.cram_baa.view.TakePhotoPopWin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
@@ -37,10 +40,11 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     public static MyFragment fragment;
     private ImageView iv_head,iv_personal_data;
     private RelativeLayout call;
-    private TextView telephone_number;
+    public TextView telephone_number,tv_name;
     public final int PIC_FROM_CAMERA = 1;
     public final int PIC_FROM＿LOCALPHOTO = 0;
     public Uri photoUri;
+    public Setting setting;
 
     @Nullable
     @Override
@@ -56,13 +60,31 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     }
 
     public void initView() {
+        setting = getSettingData();//初始化数据库
         call = (RelativeLayout) getView().findViewById(R.id.call);
         iv_head = (ImageView) getView().findViewById(R.id.iv_head);
+        tv_name= (TextView) getView().findViewById(R.id.tv_name);
+        tv_name.setText(setting.getName());
+        //获取图片
+        getPicture();
         telephone_number = (TextView) getView().findViewById(R.id.telephone_number);
-        iv_personal_data= (ImageView) getView().findViewById(R.id.iv_personal_data);
+        iv_personal_data = (ImageView) getView().findViewById(R.id.iv_personal_data);
         call.setOnClickListener(this);
         iv_head.setOnClickListener(this);
         iv_personal_data.setOnClickListener(this);
+    }
+
+    public void getPicture(){
+        File pictureFileDir = new File(Environment.getExternalStorageDirectory(), "/CramBaa");
+        if (!pictureFileDir.exists()) {
+            pictureFileDir.mkdirs();
+        }
+        File picFile = new File(pictureFileDir, "head.jpeg");
+        if (picFile.exists()) {
+            photoUri = Uri.fromFile(picFile);
+            Bitmap bitmap = decodeUriAsBitmap(photoUri);
+            iv_head.setImageBitmap(createCircleImage(bitmap));
+        }
     }
 
     @Override
@@ -76,7 +98,9 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + telephone_number.getText().toString())));//拨打电话
                 break;
             case R.id.iv_personal_data:
-                startActivity(new Intent(getActivity(), PersonalData.class));
+                Intent intent = new Intent(getActivity(), PersonalDataActivity.class);
+                intent.putExtra("Setting", (Serializable) setting);
+                startActivity(intent);
                 break;
         }
     }
@@ -172,11 +196,11 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private void doHandlerPhoto(int type) {
         try {
             //保存裁剪后的图片文件
-            File pictureFileDir = new File(Environment.getExternalStorageDirectory(), "/upload");
+            File pictureFileDir = new File(Environment.getExternalStorageDirectory(), "/CramBaa");
             if (!pictureFileDir.exists()) {
                 pictureFileDir.mkdirs();
             }
-            File picFile = new File(pictureFileDir, "upload.jpeg");
+            File picFile = new File(pictureFileDir, "head.jpeg");
             if (!picFile.exists()) {
                 picFile.createNewFile();
             }
@@ -185,12 +209,10 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             if (type == PIC_FROM＿LOCALPHOTO) {
                 Intent intent = getCropImageIntent();
                 startActivityForResult(intent, PIC_FROM＿LOCALPHOTO);
-
             } else {
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(cameraIntent, PIC_FROM_CAMERA);
-
             }
 
         } catch (Exception e) {
@@ -216,5 +238,25 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     //拍照
     public void photograph() {
         doHandlerPhoto(PIC_FROM_CAMERA);
+    }
+
+    public Setting getSettingData() {
+        DBOperation dboperation = new DBOperation(getActivity().getApplicationContext());
+        Setting setting = dboperation.querySet();
+        if (setting.getID() == null || setting.getName() == null || setting.getSex() == null
+                || setting.getRegion() == null || setting.getAge() == null || setting.getSchool() == null || setting.getGrade() == null
+                || setting.getClbum() == null) {
+            Setting newset = new Setting();
+            newset.setName("未填写");
+            newset.setSex("未填写");
+            newset.setRegion("未填写");
+            newset.setAge("未填写");
+            newset.setSchool("未填写");
+            newset.setGrade("未填写");
+            newset.setClbum("未填写");
+            dboperation.insertSet(newset);
+            setting = dboperation.querySet();
+        }
+        return setting;
     }
 }
