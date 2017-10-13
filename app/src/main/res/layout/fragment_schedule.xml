@@ -18,13 +18,13 @@
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/activity_title_tvtitle" />
 
-        <Button
-
+        <ImageView
             android:id="@+id/btn_right"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/edit"
+            android:padding="10dp"
+            android:src="@drawable/edit"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true" />
     </RelativeLayout>

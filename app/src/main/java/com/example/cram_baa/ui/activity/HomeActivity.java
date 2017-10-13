@@ -1,14 +1,17 @@
 package com.example.cram_baa.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cram_baa.R;
 import com.example.cram_baa.adapter.HomePageAdapter;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
@@ -27,7 +30,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         //
-        homeActivity=this;
+        homeActivity = this;
         initView();
     }
 
@@ -103,8 +106,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 changeColor(false, true, false, false, false);
                 break;
             case R.id.lv_sign_in:
-                pager.setCurrentItem(2);
-                changeColor(false, false, true, false, false);
+//                pager.setCurrentItem(2);
+//                changeColor(false, false, true, false, false);
+                //扫描
+                Intent it = new Intent();
+                it.setClass(this, CaptureActivity.class);
+                //返回一个二维码的信息
+                startActivityForResult(it, 99);
                 break;
             case R.id.lv_schedule:
                 pager.setCurrentItem(3);
@@ -114,6 +122,18 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 pager.setCurrentItem(4);
                 changeColor(false, false, false, false, true);
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 99 && resultCode == RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            String result = bundle.get("result").toString();
+            //返回二维码扫描的信息
+            Toast.makeText(HomeActivity.this, result, Toast.LENGTH_SHORT).show();
+            System.out.println(">>>>>>>>>>"+result);
         }
     }
 
