@@ -34,6 +34,10 @@
             android:name="com.xys.libzxing.zxing.activity.CaptureActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".ui.activity.CourseDetails"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 
 </manifest>

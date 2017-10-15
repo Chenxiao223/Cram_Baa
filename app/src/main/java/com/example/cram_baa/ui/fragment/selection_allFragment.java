@@ -1,15 +1,18 @@
 package com.example.cram_baa.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.cram_baa.R;
 import com.example.cram_baa.adapter.AdapterSelection;
+import com.example.cram_baa.ui.activity.CourseDetails;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,5 +50,11 @@ public class selection_allFragment extends Fragment {
         }
         adapterSelection=new AdapterSelection(getActivity(),list_selection);
         lv_all.setAdapter(adapterSelection);
+        lv_all.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getActivity(), CourseDetails.class));
+            }
+        });
     }
 }

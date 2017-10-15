@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cram_Baa</string>
+    <string name="app_name">阿咩爱补习</string>
     <!--homefragment-->
     <string name="homeActivity_homepage">首页</string>
     <string name="homeActivity_selection">选课</string>

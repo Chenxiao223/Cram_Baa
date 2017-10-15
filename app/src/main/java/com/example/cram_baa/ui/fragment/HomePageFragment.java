@@ -1,5 +1,6 @@
 package com.example.cram_baa.ui.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import com.example.cram_baa.ui.activity.TileActivity;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
@@ -112,8 +114,11 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
                 HomeActivity.homeActivity.changeColor(false, false, false, true, false);
                 break;
             case R.id.line_sign_in:
-                HomeActivity.homeActivity.pager.setCurrentItem(2);
-                HomeActivity.homeActivity.changeColor(false, false, true, false, false);
+                //扫描
+                Intent it = new Intent();
+                it.setClass(getActivity(), CaptureActivity.class);
+                //返回一个二维码的信息
+                startActivityForResult(it, 99);;
                 break;
         }
     }
