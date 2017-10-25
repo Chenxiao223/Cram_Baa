@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.cram_baa.R;
 import com.example.cram_baa.ui.activity.HomeActivity;
+import com.example.cram_baa.ui.activity.LoginActivity;
 import com.example.cram_baa.ui.activity.TileActivity;
 import com.jude.rollviewpager.RollPagerView;
 import com.jude.rollviewpager.adapter.StaticPagerAdapter;
@@ -49,6 +50,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         tileActivity.tv_title.setText("阿咩爱补习");
         tileActivity.tv_left.setText("上海");
         tileActivity.btn_right.setText("登录");
+        tileActivity.btn_right.setOnClickListener(this);
         //获取手机屏幕的宽度,并计算平均宽
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int height=dm.widthPixels/4-19;
@@ -120,12 +122,15 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
                 //返回一个二维码的信息
                 startActivityForResult(it, 99);;
                 break;
+            case R.id.btn_right:
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+                break;
         }
     }
 
     private class TestNormalAdapter extends StaticPagerAdapter {
         private int[] imgs = {
-                R.drawable.img1,
+                R.drawable.img5,
                 R.drawable.img2,
                 R.drawable.img3,
                 R.drawable.img4,

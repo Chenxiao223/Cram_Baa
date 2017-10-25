@@ -25,6 +25,7 @@
             android:layout_marginRight="5dp"
             android:padding="10dp"
             android:src="@drawable/edit"
+            android:visibility="gone"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true" />
     </RelativeLayout>

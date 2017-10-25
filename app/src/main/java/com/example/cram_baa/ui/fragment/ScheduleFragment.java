@@ -1,11 +1,13 @@
 package com.example.cram_baa.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.cram_baa.R;
 import com.example.cram_baa.adapter.ScheduleAdapter;
+import com.example.cram_baa.ui.activity.CourseDetailsActivity;
 import com.example.cram_baa.util.MonthDateView;
 
 import java.util.ArrayList;
@@ -73,6 +76,12 @@ public class ScheduleFragment extends Fragment {
 
         scheduleAdapter =new ScheduleAdapter(getActivity(),list_schedule);
         list_item.setAdapter(scheduleAdapter);
+        list_item.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(getActivity(), CourseDetailsActivity.class));
+            }
+        });
     }
 
     private void setOnlistener(){

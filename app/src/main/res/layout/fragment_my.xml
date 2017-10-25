@@ -63,18 +63,6 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_balance_of_tuition"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="1dp"
-            android:layout_weight="1"
-            android:background="#ffff"
-            android:drawableTop="@drawable/balance"
-            android:gravity="center"
-            android:text="学费余额"
-            android:textColor="#f123" />
-
-        <TextView
             android:id="@+id/tv_my_course"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -84,6 +72,18 @@
             android:drawableTop="@drawable/course"
             android:gravity="center"
             android:text="我的课程"
+            android:textColor="#f123" />
+
+        <TextView
+            android:id="@+id/tv_balance_of_tuition"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="#ffff"
+            android:drawableTop="@drawable/balance"
+            android:gravity="center"
+            android:text="学费余额"
             android:textColor="#f123" />
 
         <TextView

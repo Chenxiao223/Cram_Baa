@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.example.cram_baa.Entity.Setting;
 import com.example.cram_baa.R;
 import com.example.cram_baa.ui.activity.MyClassMateActivity;
+import com.example.cram_baa.ui.activity.MyMoneyActivity;
 import com.example.cram_baa.ui.activity.PersonalDataActivity;
 import com.example.cram_baa.util.DBOperation;
 import com.example.cram_baa.view.TakePhotoPopWin;
@@ -113,6 +114,8 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.tv_balance_of_tuition:
+                //跳转到我的余额页面
+                startActivity(new Intent(getActivity(), MyMoneyActivity.class));
                 break;
             case R.id.tv_my_course:
                 break;

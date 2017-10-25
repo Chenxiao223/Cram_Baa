@@ -3,6 +3,7 @@ package com.example.cram_baa.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +25,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_homepage, tv_selection, tv_sign_in, tv_schedule, tv_my;
     private HomePageAdapter homePageAdapter = null;
     public ViewPager pager = null;
+    //退出时的时间
+    private long mExitTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,6 +178,29 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         } else {
             iv_my.setImageResource(R.drawable.btn_my);
             tv_my.setTextColor(this.getResources().getColor(R.color.gray));
+        }
+    }
+
+    //对返回键进行监听
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            exit();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public void exit() {
+        if ((System.currentTimeMillis() - mExitTime) > 2000) {
+            Toast.makeText(this, "再按一次退出阿咩爱补习", Toast.LENGTH_SHORT).show();
+            mExitTime = System.currentTimeMillis();
+        } else {
+//            MyConfig.clearSharePre(this, "users");
+            finish();
+            System.exit(0);
         }
     }
 }
