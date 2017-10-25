@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.example.cram_baa.Entity.Setting;
 import com.example.cram_baa.R;
+import com.example.cram_baa.ui.activity.MyClassMateActivity;
 import com.example.cram_baa.ui.activity.PersonalDataActivity;
 import com.example.cram_baa.util.DBOperation;
 import com.example.cram_baa.view.TakePhotoPopWin;
@@ -39,6 +40,7 @@ import java.io.Serializable;
 public class MyFragment extends Fragment implements View.OnClickListener {
     public static MyFragment fragment;
     private ImageView iv_head,iv_personal_data;
+    private TextView tv_balance_of_tuition,tv_my_course,tv_my_teacher,tv_my_classmate;
     private RelativeLayout call;
     public TextView telephone_number,tv_name;
     public final int PIC_FROM_CAMERA = 1;
@@ -65,6 +67,14 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         iv_head = (ImageView) getView().findViewById(R.id.iv_head);
         tv_name= (TextView) getView().findViewById(R.id.tv_name);
         tv_name.setText(setting.getName());
+        tv_balance_of_tuition= (TextView) getView().findViewById(R.id.tv_balance_of_tuition);
+        tv_my_course= (TextView) getView().findViewById(R.id.tv_my_course);
+        tv_my_teacher= (TextView) getView().findViewById(R.id.tv_my_teacher);
+        tv_my_classmate= (TextView) getView().findViewById(R.id.tv_my_classmate);
+        tv_balance_of_tuition.setOnClickListener(this);
+        tv_my_course.setOnClickListener(this);
+        tv_my_teacher.setOnClickListener(this);
+        tv_my_classmate.setOnClickListener(this);
         //获取图片
         getPicture();
         telephone_number = (TextView) getView().findViewById(R.id.telephone_number);
@@ -101,6 +111,16 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 Intent intent = new Intent(getActivity(), PersonalDataActivity.class);
                 intent.putExtra("Setting", (Serializable) setting);
                 startActivity(intent);
+                break;
+            case R.id.tv_balance_of_tuition:
+                break;
+            case R.id.tv_my_course:
+                break;
+            case R.id.tv_my_teacher:
+                break;
+            case R.id.tv_my_classmate:
+                //跳转到我的同学页面
+                startActivity(new Intent(getActivity(), MyClassMateActivity.class));
                 break;
         }
     }

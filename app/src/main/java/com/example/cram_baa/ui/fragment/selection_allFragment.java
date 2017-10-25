@@ -11,8 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.cram_baa.R;
-import com.example.cram_baa.adapter.AdapterSelection;
-import com.example.cram_baa.ui.activity.CourseDetails;
+import com.example.cram_baa.adapter.SelectionAdapter;
+import com.example.cram_baa.ui.activity.CourseDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class selection_allFragment extends Fragment {
     private ListView lv_all;
     private ArrayList<HashMap<String,String>> list_selection=new ArrayList<>();
-    private AdapterSelection adapterSelection;
+    private SelectionAdapter selectionAdapter;
     private HashMap<String,String> hashMap;
 
     @Nullable
@@ -48,12 +48,12 @@ public class selection_allFragment extends Fragment {
             hashMap.put("content4", "100");
             list_selection.add(hashMap);
         }
-        adapterSelection=new AdapterSelection(getActivity(),list_selection);
-        lv_all.setAdapter(adapterSelection);
+        selectionAdapter =new SelectionAdapter(getActivity(),list_selection);
+        lv_all.setAdapter(selectionAdapter);
         lv_all.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(getActivity(), CourseDetails.class));
+                startActivity(new Intent(getActivity(), CourseDetailsActivity.class));
             }
         });
     }

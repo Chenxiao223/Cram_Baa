@@ -12,12 +12,12 @@ import com.example.cram_baa.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AdapterSelection extends BaseAdapter {
+public class MyClassMateAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     private ArrayList<HashMap<String, String>> list;
 
-    public AdapterSelection(Context context, ArrayList<HashMap<String, String>> list) {
+    public MyClassMateAdapter(Context context, ArrayList<HashMap<String, String>> list) {
         this.context = context;
         this.list = list;
         inflater = LayoutInflater.from(context);
@@ -43,24 +43,23 @@ public class AdapterSelection extends BaseAdapter {
         ViewHold viewHold = null;
         if (convertView == null) {
             viewHold = new ViewHold();
-            convertView = inflater.inflate(R.layout.list_selection_item, null);
-            viewHold.tv_course = (TextView) convertView.findViewById(R.id.tv_course);
-            viewHold.tv_introduce = (TextView) convertView.findViewById(R.id.tv_introduce);
-            viewHold.tv_teacher = (TextView) convertView.findViewById(R.id.tv_teacher);
-            viewHold.tv_rmb = (TextView) convertView.findViewById(R.id.tv_rmb);
+            convertView = inflater.inflate(R.layout.list_my_class_mate, null);
+            viewHold.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
+            viewHold.tv_class = (TextView) convertView.findViewById(R.id.tv_class);
+            viewHold.tv_telephoneNo = (TextView) convertView.findViewById(R.id.telephone_number);
             convertView.setTag(viewHold);
         } else {
             viewHold = (ViewHold) convertView.getTag();
         }
 
-        viewHold.tv_course.setText(list.get(position).get("content1"));
-        viewHold.tv_introduce.setText(list.get(position).get("content2"));
-        viewHold.tv_teacher.setText(list.get(position).get("content3"));
-        viewHold.tv_rmb.setText(list.get(position).get("content4"));
+        viewHold.tv_name.setText(list.get(position).get("content1"));
+        viewHold.tv_class.setText(list.get(position).get("content2"));
+        viewHold.tv_telephoneNo.setText(list.get(position).get("content3"));
         return convertView;
     }
 
+
     public static class ViewHold {
-        TextView tv_course,tv_introduce,tv_teacher,tv_rmb;
+        TextView tv_name,tv_class,tv_telephoneNo;
     }
 }

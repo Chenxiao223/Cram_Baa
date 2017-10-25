@@ -27,7 +27,6 @@ import com.example.cram_baa.view.TakePhotoPopWin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.Serializable;
 
 /**
  * Created by Administrator on 2017/10/11 0011.
@@ -160,7 +159,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-    //
+    //保存数据的方法
     public void insertDataBase() {
         //将数据先保存到实体类
         setting.setName(tv_name.getText().toString());

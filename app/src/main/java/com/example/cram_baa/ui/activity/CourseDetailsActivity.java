@@ -9,7 +9,7 @@ import com.example.cram_baa.R;
  * Created by chenxiao on 2017/10/14.
  * 课程详情页
  */
-public class CourseDetails extends BaseActivity implements View.OnClickListener {
+public class CourseDetailsActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

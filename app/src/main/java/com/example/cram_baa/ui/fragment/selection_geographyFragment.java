@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.cram_baa.R;
-import com.example.cram_baa.adapter.AdapterSelection;
+import com.example.cram_baa.adapter.SelectionAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 public class selection_geographyFragment extends Fragment {
     private ListView lv_geography;
     private ArrayList<HashMap<String,String>> list_selection=new ArrayList<>();
-    private AdapterSelection adapterSelection;
+    private SelectionAdapter selectionAdapter;
     private HashMap<String,String> hashMap;
 
     @Nullable
@@ -45,7 +45,7 @@ public class selection_geographyFragment extends Fragment {
             hashMap.put("content4", "100");
             list_selection.add(hashMap);
         }
-        adapterSelection=new AdapterSelection(getActivity(),list_selection);
-        lv_geography.setAdapter(adapterSelection);
+        selectionAdapter =new SelectionAdapter(getActivity(),list_selection);
+        lv_geography.setAdapter(selectionAdapter);
     }
 }

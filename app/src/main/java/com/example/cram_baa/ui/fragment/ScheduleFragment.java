@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cram_baa.R;
-import com.example.cram_baa.adapter.AdapterSchedule;
+import com.example.cram_baa.adapter.ScheduleAdapter;
 import com.example.cram_baa.util.MonthDateView;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class ScheduleFragment extends Fragment {
     private TextView tv_today;
     private MonthDateView monthDateView;
     private ListView list_item;
-    private AdapterSchedule adapterSchedule;
+    private ScheduleAdapter scheduleAdapter;
     private ArrayList<HashMap<String,String>> list_schedule=new ArrayList<>();
     private HashMap<String,String> hashMap;
 
@@ -71,8 +71,8 @@ public class ScheduleFragment extends Fragment {
         });
         setOnlistener();
 
-        adapterSchedule=new AdapterSchedule(getActivity(),list_schedule);
-        list_item.setAdapter(adapterSchedule);
+        scheduleAdapter =new ScheduleAdapter(getActivity(),list_schedule);
+        list_item.setAdapter(scheduleAdapter);
     }
 
     private void setOnlistener(){
