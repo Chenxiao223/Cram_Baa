@@ -27,13 +27,13 @@ import com.xys.libzxing.zxing.activity.CaptureActivity;
  */
 public class HomePageFragment extends Fragment implements View.OnClickListener {
     private RollPagerView mRollViewPager;
-    private TextView tv_yuwen,tv_english,tv_math,tv_history,tv_physics,tv_chemistry,tv_biology,tv_more;
-    private LinearLayout line_sign_in,line_class_schedule;
+    private TextView tv_yuwen, tv_english, tv_math, tv_history, tv_physics, tv_chemistry, tv_biology, tv_more;
+    private LinearLayout line_sign_in, line_class_schedule;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_homepage,container,false);
+        return inflater.inflate(R.layout.fragment_homepage, container, false);
     }
 
     @Override
@@ -43,50 +43,50 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         initView();
     }
 
-    public void initView(){
-        line_class_schedule= (LinearLayout) getView().findViewById(R.id.line_class_schedule);
-        line_sign_in= (LinearLayout) getView().findViewById(R.id.line_sign_in);
-        TileActivity tileActivity=new TileActivity(getActivity().getWindow().getDecorView());
+    public void initView() {
+        line_class_schedule = (LinearLayout) getView().findViewById(R.id.line_class_schedule);
+        line_sign_in = (LinearLayout) getView().findViewById(R.id.line_sign_in);
+        TileActivity tileActivity = new TileActivity(getActivity().getWindow().getDecorView());
         tileActivity.tv_title.setText("阿咩爱补习");
-        tileActivity.tv_left.setText("上海");
+        tileActivity.tv_left.setText(HomeActivity.homeActivity.g_city);
         tileActivity.btn_right.setText("登录");
         tileActivity.btn_right.setOnClickListener(this);
         //获取手机屏幕的宽度,并计算平均宽
         DisplayMetrics dm = getResources().getDisplayMetrics();
-        int height=dm.widthPixels/4-19;
-        System.out.println("高度："+dm.heightPixels);
-        tv_yuwen= (TextView) getView().findViewById(R.id.iv_yuwen);
-        tv_english= (TextView) getView().findViewById(R.id.iv_english);
-        tv_math= (TextView) getView().findViewById(R.id.iv_math);
-        tv_history= (TextView) getView().findViewById(R.id.iv_history);
+        int height = dm.widthPixels / 4 - 19;
+        System.out.println("高度：" + dm.heightPixels);
+        tv_yuwen = (TextView) getView().findViewById(R.id.iv_yuwen);
+        tv_english = (TextView) getView().findViewById(R.id.iv_english);
+        tv_math = (TextView) getView().findViewById(R.id.iv_math);
+        tv_history = (TextView) getView().findViewById(R.id.iv_history);
 
-        tv_physics= (TextView) getView().findViewById(R.id.iv_physics);
-        tv_chemistry= (TextView) getView().findViewById(R.id.iv_chemistry);
-        tv_biology= (TextView) getView().findViewById(R.id.iv_biology);
-        tv_more= (TextView) getView().findViewById(R.id.iv_more);
+        tv_physics = (TextView) getView().findViewById(R.id.iv_physics);
+        tv_chemistry = (TextView) getView().findViewById(R.id.iv_chemistry);
+        tv_biology = (TextView) getView().findViewById(R.id.iv_biology);
+        tv_more = (TextView) getView().findViewById(R.id.iv_more);
         //设置图片和text之间的间距
         tv_yuwen.setCompoundDrawablePadding(2);
         tv_english.setCompoundDrawablePadding(2);
         tv_math.setCompoundDrawablePadding(2);
         tv_history.setCompoundDrawablePadding(2);
         //获取当前控件的布局对象
-        LinearLayout.LayoutParams p_iv_yuwen= (LinearLayout.LayoutParams) tv_yuwen.getLayoutParams();
-        p_iv_yuwen.height=height;//设置当前控件布局的高度
-        LinearLayout.LayoutParams p_iv_english= (LinearLayout.LayoutParams) tv_english.getLayoutParams();
-        p_iv_english.height=height;
-        LinearLayout.LayoutParams p_iv_math= (LinearLayout.LayoutParams) tv_math.getLayoutParams();
-        p_iv_math.height=height;
-        LinearLayout.LayoutParams p_iv_history= (LinearLayout.LayoutParams) tv_history.getLayoutParams();
-        p_iv_history.height=height;
+        LinearLayout.LayoutParams p_iv_yuwen = (LinearLayout.LayoutParams) tv_yuwen.getLayoutParams();
+        p_iv_yuwen.height = height;//设置当前控件布局的高度
+        LinearLayout.LayoutParams p_iv_english = (LinearLayout.LayoutParams) tv_english.getLayoutParams();
+        p_iv_english.height = height;
+        LinearLayout.LayoutParams p_iv_math = (LinearLayout.LayoutParams) tv_math.getLayoutParams();
+        p_iv_math.height = height;
+        LinearLayout.LayoutParams p_iv_history = (LinearLayout.LayoutParams) tv_history.getLayoutParams();
+        p_iv_history.height = height;
 
-        LinearLayout.LayoutParams p_iv_physics= (LinearLayout.LayoutParams) tv_physics.getLayoutParams();
-        p_iv_physics.height=height;//设置当前控件布局的高度
-        LinearLayout.LayoutParams p_iv_chemistry= (LinearLayout.LayoutParams) tv_chemistry.getLayoutParams();
-        p_iv_chemistry.height=height;
-        LinearLayout.LayoutParams p_iv_biology= (LinearLayout.LayoutParams) tv_biology.getLayoutParams();
-        p_iv_biology.height=height;
-        LinearLayout.LayoutParams p_iv_more= (LinearLayout.LayoutParams) tv_more.getLayoutParams();
-        p_iv_more.height=height;
+        LinearLayout.LayoutParams p_iv_physics = (LinearLayout.LayoutParams) tv_physics.getLayoutParams();
+        p_iv_physics.height = height;//设置当前控件布局的高度
+        LinearLayout.LayoutParams p_iv_chemistry = (LinearLayout.LayoutParams) tv_chemistry.getLayoutParams();
+        p_iv_chemistry.height = height;
+        LinearLayout.LayoutParams p_iv_biology = (LinearLayout.LayoutParams) tv_biology.getLayoutParams();
+        p_iv_biology.height = height;
+        LinearLayout.LayoutParams p_iv_more = (LinearLayout.LayoutParams) tv_more.getLayoutParams();
+        p_iv_more.height = height;
 
         //轮播图
         mRollViewPager = (RollPagerView) getView().findViewById(R.id.roll_view_pager);
@@ -102,7 +102,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         //设置文字指示器
         //隐藏指示器
         //mRollViewPager.setHintView(new IconHintView(this, R.drawable.point_focus, R.drawable.point_normal));
-        mRollViewPager.setHintView(new ColorPointHintView(getActivity(), Color.YELLOW,Color.WHITE));
+        mRollViewPager.setHintView(new ColorPointHintView(getActivity(), Color.YELLOW, Color.WHITE));
 
         line_class_schedule.setOnClickListener(this);
         line_sign_in.setOnClickListener(this);
@@ -110,7 +110,7 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.line_class_schedule:
                 HomeActivity.homeActivity.pager.setCurrentItem(3);
                 HomeActivity.homeActivity.changeColor(false, false, false, true, false);
@@ -120,7 +120,8 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
                 Intent it = new Intent();
                 it.setClass(getActivity(), CaptureActivity.class);
                 //返回一个二维码的信息
-                startActivityForResult(it, 99);;
+                startActivityForResult(it, 99);
+                ;
                 break;
             case R.id.btn_right:
                 startActivity(new Intent(getActivity(), LoginActivity.class));
@@ -136,7 +137,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
                 R.drawable.img4,
         };
 
-
         @Override
         public View getView(ViewGroup container, int position) {
             ImageView view = new ImageView(container.getContext());
@@ -145,7 +145,6 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
             view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             return view;
         }
-
 
         @Override
         public int getCount() {

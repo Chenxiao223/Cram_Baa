@@ -25,7 +25,9 @@ import android.widget.TextView;
 import com.example.cram_baa.Entity.Setting;
 import com.example.cram_baa.R;
 import com.example.cram_baa.ui.activity.MyClassMateActivity;
+import com.example.cram_baa.ui.activity.MyCoursesActivity;
 import com.example.cram_baa.ui.activity.MyMoneyActivity;
+import com.example.cram_baa.ui.activity.MyTeacherActivity;
 import com.example.cram_baa.ui.activity.PersonalDataActivity;
 import com.example.cram_baa.util.DBOperation;
 import com.example.cram_baa.view.TakePhotoPopWin;
@@ -90,7 +92,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         if (!pictureFileDir.exists()) {
             pictureFileDir.mkdirs();
         }
-        File picFile = new File(pictureFileDir, "head.jpeg");
+        File picFile = new File(pictureFileDir, "head.jpg");
         if (picFile.exists()) {
             photoUri = Uri.fromFile(picFile);
             Bitmap bitmap = decodeUriAsBitmap(photoUri);
@@ -118,8 +120,12 @@ public class MyFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), MyMoneyActivity.class));
                 break;
             case R.id.tv_my_course:
+                //跳转到我的课程页面
+                startActivity(new Intent(getActivity(), MyCoursesActivity.class));
                 break;
             case R.id.tv_my_teacher:
+                //跳转到我的老师页面
+                startActivity(new Intent(getActivity(), MyTeacherActivity.class));
                 break;
             case R.id.tv_my_classmate:
                 //跳转到我的同学页面
@@ -223,7 +229,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             if (!pictureFileDir.exists()) {
                 pictureFileDir.mkdirs();
             }
-            File picFile = new File(pictureFileDir, "head.jpeg");
+            File picFile = new File(pictureFileDir, "head.jpg");
             if (!picFile.exists()) {
                 picFile.createNewFile();
             }

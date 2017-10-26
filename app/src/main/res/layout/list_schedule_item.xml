@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="190dp"
         android:padding="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/shape_btn"
-                    android:text="    一对一    "
+                    android:text="   一对一   "
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>

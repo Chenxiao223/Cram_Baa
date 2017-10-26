@@ -58,7 +58,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
         if (!pictureFileDir.exists()) {
             pictureFileDir.mkdirs();
         }
-        File picFile = new File(pictureFileDir, "head.jpeg");
+        File picFile = new File(pictureFileDir, "head.jpg");
         if (picFile.exists()) {
             photoUri = Uri.fromFile(picFile);
             Bitmap bitmap = decodeUriAsBitmap(photoUri);
@@ -261,7 +261,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
             if (!pictureFileDir.exists()) {
                 pictureFileDir.mkdirs();
             }
-            File picFile = new File(pictureFileDir, "head.jpeg");
+            File picFile = new File(pictureFileDir, "head.jpg");
             if (!picFile.exists()) {
                 picFile.createNewFile();
             }

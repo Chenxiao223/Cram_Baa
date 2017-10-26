@@ -25,6 +25,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_homepage, tv_selection, tv_sign_in, tv_schedule, tv_my;
     private HomePageAdapter homePageAdapter = null;
     public ViewPager pager = null;
+    public String g_city;
     //退出时的时间
     private long mExitTime;
 
@@ -38,6 +39,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     }
 
     public void initView() {
+        Intent it = getIntent();
+        g_city = it.getStringExtra("city");
         iv_homepage = (ImageView) findViewById(R.id.iv_homepage);
         iv_selection = (ImageView) findViewById(R.id.iv_selection);
         iv_sign_in = (ImageView) findViewById(R.id.iv_sign_in);
@@ -135,7 +138,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             String result = bundle.get("result").toString();
             //返回二维码扫描的信息
             Toast.makeText(HomeActivity.this, result, Toast.LENGTH_SHORT).show();
-            System.out.println(">>>>>>>>>>"+result);
+            System.out.println(">>>>>>>>>>" + result);
         }
     }
 
@@ -198,7 +201,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             Toast.makeText(this, "再按一次退出阿咩爱补习", Toast.LENGTH_SHORT).show();
             mExitTime = System.currentTimeMillis();
         } else {
-//            MyConfig.clearSharePre(this, "users");
             finish();
             System.exit(0);
         }
