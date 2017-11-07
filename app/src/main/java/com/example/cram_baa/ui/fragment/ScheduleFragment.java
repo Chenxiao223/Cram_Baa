@@ -24,6 +24,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2017/7/17 0017.
+ * 课表页面
  */
 public class ScheduleFragment extends Fragment {
     private ImageView iv_left;

@@ -64,6 +64,16 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
         tv_chemistry = (TextView) getView().findViewById(R.id.iv_chemistry);
         tv_biology = (TextView) getView().findViewById(R.id.iv_biology);
         tv_more = (TextView) getView().findViewById(R.id.iv_more);
+
+        tv_yuwen.setOnClickListener(this);
+        tv_english.setOnClickListener(this);
+        tv_math.setOnClickListener(this);
+        tv_history.setOnClickListener(this);
+
+        tv_physics.setOnClickListener(this);
+        tv_chemistry.setOnClickListener(this);
+        tv_biology.setOnClickListener(this);
+        tv_more.setOnClickListener(this);
         //设置图片和text之间的间距
         tv_yuwen.setCompoundDrawablePadding(2);
         tv_english.setCompoundDrawablePadding(2);
@@ -125,6 +135,59 @@ public class HomePageFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.btn_right:
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+                break;
+            case R.id.iv_yuwen:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
+                //定位到语文碎片
+                selectionFragment.selectionFragment.selectpager.setCurrentItem(1);
+                selectionFragment.selectionFragment.changeColor(false, true, false, false, false, false, false, false, false, false);
+                break;
+            case R.id.iv_english:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
+                //定位到英语碎片
+                selectionFragment.selectionFragment.selectpager.setCurrentItem(3);
+                selectionFragment.selectionFragment.changeColor(false, false, false, true, false, false, false, false, false, false);
+                break;
+            case R.id.iv_math:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
+                //定位到数学碎片
+                selectionFragment.selectionFragment.selectpager.setCurrentItem(2);
+                selectionFragment.selectionFragment.changeColor(false, false, true, false, false, false, false, false, false, false);
+                break;
+            case R.id.iv_history:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
+                //定位到历史碎片
+                selectionFragment.selectionFragment.selectpager.setCurrentItem(7);
+                selectionFragment.selectionFragment.changeColor(false, false, false, false, false, false, false, true, false, false);
+                break;
+            case R.id.iv_physics:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
+                //定位到物理碎片
+                selectionFragment.selectionFragment.selectpager.setCurrentItem(4);
+                selectionFragment.selectionFragment.changeColor(false, false, false, false, true, false, false, false, false, false);
+                break;
+            case R.id.iv_chemistry:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
+                //定位到化学碎片
+                selectionFragment.selectionFragment.selectpager.setCurrentItem(5);
+                selectionFragment.selectionFragment.changeColor(false, false, false, false, false, true, false, false, false, false);
+                break;
+            case R.id.iv_biology:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
+                //定位到生物碎片
+                selectionFragment.selectionFragment.selectpager.setCurrentItem(6);
+                selectionFragment.selectionFragment.changeColor(false, false, false, false, false, false, true, false, false, false);
+                break;
+            case R.id.iv_more:
+                HomeActivity.homeActivity.pager.setCurrentItem(1);
+                HomeActivity.homeActivity.changeColor(false, true, false, false, false);
                 break;
         }
     }

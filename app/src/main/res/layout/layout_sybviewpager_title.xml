@@ -13,8 +13,8 @@
             android:layout_height="45dp"
             android:gravity="center"
             android:text="私信"
-            android:textColor="#6CA2C8"
-            android:textSize="15sp" />
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
         <!-- -            android:layout_margin="10dp" -->
 
         <LinearLayout

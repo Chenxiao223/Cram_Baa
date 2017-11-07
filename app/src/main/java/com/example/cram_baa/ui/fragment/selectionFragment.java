@@ -16,10 +16,11 @@ import com.example.cram_baa.adapter.SelectionFragmentAdapter;
  * Created by Administrator on 2017/7/17 0017.
  */
 public class selectionFragment extends Fragment implements View.OnClickListener {
+    public static selectionFragment selectionFragment;
     private Button btn_all, btn_chinese, btn_math, btn_english, btn_physics, btn_chemistry, btn_biology, btn_history,
             btn_geography, btn_political;
-    private SelectionFragmentAdapter selectionFragmentAdapter = null;
-    private ViewPager selectpager = null;
+    public SelectionFragmentAdapter selectionFragmentAdapter = null;
+    public ViewPager selectpager = null;
 
 
     @Nullable
@@ -31,6 +32,7 @@ public class selectionFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        selectionFragment = this;
         initView();
     }
 

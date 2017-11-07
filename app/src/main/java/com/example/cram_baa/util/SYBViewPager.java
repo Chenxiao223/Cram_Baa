@@ -46,7 +46,7 @@ public class SYBViewPager extends LinearLayout {
 	private List<TitleData> titledatas;
 	private int titleweight;// 标题平分宽度
 
-	private int title_currcolor = 0xff6CA2C8;// 标题选中的字体颜色
+	private int title_currcolor = 0xff000000;// 标题选中的字体颜色
 	private int title_nocurrcolor = 0xffC3C3C3;// 标题未选中时的字体颜色
 	private int title_currimage = R.drawable.curr_flag;// 标题选中时的下划线
 
