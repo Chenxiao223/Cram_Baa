@@ -16,7 +16,7 @@
             android:layout_centerVertical="true"
             android:text="@string/homeActivity_selection"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/activity_title_tvtitle" />
+            android:textSize="@dimen/activity_title_btn" />
     </RelativeLayout>
 
     <HorizontalScrollView

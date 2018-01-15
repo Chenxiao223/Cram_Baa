@@ -1,7 +1,12 @@
 package com.example.cram_baa.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
@@ -38,7 +43,56 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {//未获取权限
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
+                //当用户第一次申请拒绝时，再次申请该权限调用
+                Toast.makeText(this, "拨打电话权限", Toast.LENGTH_SHORT).show();
+            }
+            //申请权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 0x01);
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.LOCATION_HARDWARE)
+                != PackageManager.PERMISSION_GRANTED) {//未获取权限
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.LOCATION_HARDWARE)) {
+                //当用户第一次申请拒绝时，再次申请该权限调用
+                Toast.makeText(this, "定位权限", Toast.LENGTH_SHORT).show();
+            }
+            //申请权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.LOCATION_HARDWARE}, 0x02);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 0x01:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {//授权成功
+
+                } else {//授权失败
+                    Toast.makeText(this, "获取权限失败", Toast.LENGTH_SHORT).show();
+                }
+                break;
+//            case 0x02:
+//                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {//授权成功
+//
+//                } else {//授权失败
+//                    Toast.makeText(this, "获取权限失败", Toast.LENGTH_SHORT).show();
+//                }
+//                break;
+        }
+    }
+
     public void initView() {
+        //设置系统栏颜色
+        ImageView iv_system = (ImageView) findViewById(R.id.iv_system);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) iv_system.getLayoutParams();
+        params.height = (int) getStatusBarHeight(this);//设置当前控件布局的高度
+
         Intent it = getIntent();
         g_city = it.getStringExtra("city");
         iv_homepage = (ImageView) findViewById(R.id.iv_homepage);

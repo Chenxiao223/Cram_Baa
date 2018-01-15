@@ -4,6 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:id="@+id/linearLayout55">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_system"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@color/titlebackgroup" />-->
+    <!--</LinearLayout>-->
+
     <include
         android:id="@+id/include"
         layout="@layout/activity_title" />
@@ -57,14 +71,14 @@
                 android:gravity="center"
                 android:text="100"
                 android:textColor="#f0ab4f"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left|center_vertical"
                 android:text="元/小时"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:textColor="#f0ab4f" />
         </LinearLayout>
         <LinearLayout
@@ -87,7 +101,7 @@
                 android:gravity="center"
                 android:text="电话咨询"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -110,7 +124,7 @@
                 android:gravity="center"
                 android:text="立即预约"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 

@@ -58,7 +58,7 @@
                         android:gravity="bottom"
                         android:text="上课签到"
                         android:textColor="@color/colorBlack"
-                        android:textSize="20dp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                         android:gravity="bottom"
                         android:text="课程表"
                         android:textColor="@color/colorBlack"
-                        android:textSize="20dp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"

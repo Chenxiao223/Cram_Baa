@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout3">
+
+        <ImageView
+            android:id="@+id/iv_system"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:scaleType="fitXY"
+            android:src="@color/titlebackgroup" />
+    </LinearLayout>
 
     <com.example.cram_baa.util.NoScrollViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout3"
         android:layout_above="@+id/linearLayout" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/gray"
-        android:layout_below="@+id/pager"/>
+        android:layout_below="@+id/pager"
+        android:background="@color/gray" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="2dp"
-        android:id="@+id/linearLayout">
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/lv_homepage"
@@ -37,8 +51,8 @@
             <ImageView
                 android:id="@+id/iv_homepage"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
-                android:layout_gravity="center"
                 android:layout_height="@dimen/activity_home_dibudaohang_size"
+                android:layout_gravity="center"
                 android:src="@drawable/btn_homepage" />
 
             <TextView
@@ -46,8 +60,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textColor="@color/dibudaohang"
-                android:text="@string/homeActivity_homepage" />
+                android:text="@string/homeActivity_homepage"
+                android:textColor="@color/dibudaohang" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,8 +75,8 @@
                 android:id="@+id/iv_selection"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
                 android:layout_height="@dimen/activity_home_dibudaohang_size"
-                android:padding="4dp"
                 android:layout_gravity="center"
+                android:padding="4dp"
                 android:src="@drawable/btn_selection" />
 
             <TextView
@@ -70,8 +84,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textColor="@color/dibudaohang"
-                android:text="@string/homeActivity_selection" />
+                android:text="@string/homeActivity_selection"
+                android:textColor="@color/dibudaohang" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,8 +98,8 @@
             <ImageView
                 android:id="@+id/iv_sign_in"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
-                android:layout_gravity="center"
                 android:layout_height="@dimen/activity_home_dibudaohang_size"
+                android:layout_gravity="center"
                 android:src="@drawable/btn_sign_in" />
 
             <TextView
@@ -93,8 +107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textColor="@color/dibudaohang"
-                android:text="@string/homeActivity_sign_in" />
+                android:text="@string/homeActivity_sign_in"
+                android:textColor="@color/dibudaohang" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,8 +131,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textColor="@color/dibudaohang"
-                android:text="@string/homeActivity_schedule" />
+                android:text="@string/homeActivity_schedule"
+                android:textColor="@color/dibudaohang" />
         </LinearLayout>
 
         <LinearLayout
@@ -131,8 +145,8 @@
             <ImageView
                 android:id="@+id/iv_my"
                 android:layout_width="@dimen/activity_home_dibudaohang_size"
-                android:layout_gravity="center"
                 android:layout_height="@dimen/activity_home_dibudaohang_size"
+                android:layout_gravity="center"
                 android:src="@drawable/btn_my" />
 
             <TextView
@@ -140,8 +154,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textColor="@color/dibudaohang"
-                android:text="@string/homeActivity_my" />
+                android:text="@string/homeActivity_my"
+                android:textColor="@color/dibudaohang" />
         </LinearLayout>
 
     </LinearLayout>

@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:text="几何部分"
                     android:textColor="@color/colorBlack"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="第一课时-第四课时"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:text="代数填空"
                     android:textColor="@color/colorBlack"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="第五课时-第八课时"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:text="解题技巧"
                     android:textColor="@color/colorBlack"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="第五课时-第八课时"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout

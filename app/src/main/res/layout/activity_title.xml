@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:background="@color/touming"
             android:text="A"
-            android:textSize="@dimen/activity_title_btn" />
+            android:textSize="@dimen/activity_text_size" />
     </LinearLayout>
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_centerVertical="true"
         android:text="B"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/activity_title_tvtitle" />
+        android:textSize="@dimen/activity_title_btn" />
 
     <Button
         android:id="@+id/btn_right"
@@ -45,5 +45,5 @@
         android:layout_centerVertical="true"
         android:background="@color/touming"
         android:text="C"
-        android:textSize="@dimen/activity_title_btn" />
+        android:textSize="@dimen/activity_text_size" />
 </RelativeLayout>
